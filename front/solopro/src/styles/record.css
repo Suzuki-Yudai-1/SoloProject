@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  border: solid 2px #333;
+}
+th,
+td {
+  border: solid 2px #333;
+  width: 120px;
+}
+.headline {
+  background-color: rgb(218, 218, 218);
+}
+
+.record {
+  background-color: grey;
+}

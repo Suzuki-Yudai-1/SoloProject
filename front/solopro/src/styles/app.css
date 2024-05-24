@@ -1,0 +1,13 @@
+.root {
+  color: black;
+}
+
+h1{
+  background-color: grey;
+  color: rgb(255, 255, 255);
+}
+
+.flex{
+  display: flex;
+  height: 695px;
+}
