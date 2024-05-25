@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const database = require("./knex")
 
 const list = [
 	'翻訳アプリをダウンロードする',
@@ -10,13 +11,19 @@ const list = [
 	'もう一度猫を抱きしめる',
 ];
 
-app.get("/", (req, res)=> res.send("aaaa"))
 
-// app.use('/', express.static(__dirname + '/frontend/dist'));
+app.use('/', express.static(__dirname + '/frontend/dist'));
+
+
+app.get('/api/record', (req, res) => {
+	database("record").select().then((result) => res.json(result))
+});
+
 
 // app.get('/api/list', (req, res) => {
 // 	res.json(list);
 // });
+
 
 // app.use('/', express.json());
 
