@@ -4,13 +4,12 @@ import "../styles/record.css";
 export default function Record(props) {
   const { record } = props;
 
-  console.log(record[0])
   return (
     <div className="record">
       <table>
         <thead>
           <tr className="headline">
-            <th>weight</th>
+            <th>weight (kg)</th>
             <th>num_of_time</th>
             <th>event</th>
             <th>part</th>

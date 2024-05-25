@@ -6,15 +6,15 @@ require("dotenv").config({
 module.exports = {
   client: "pg",
   connection: {
-    database: process.env.DB_NAME || "solopro",
-    user: process.env.DB_USERNAME || "user",
-    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME ,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
   },
 
   migrations: {
-    tableName: "../db/migrations",
+    tableName: "knex_migrations",
   },
   seeds: {
-    directory: "../db/seeds",
+    directory: "./db/seeds",
   },
 };
