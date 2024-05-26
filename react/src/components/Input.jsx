@@ -6,8 +6,8 @@ export default function Input(props) {
   const {
     weight,
     setWeight,
-    num_of_time,
     setNumOfTime,
+     num_of_time,
     event,
     setEvent,
     part,
@@ -17,23 +17,25 @@ export default function Input(props) {
 
   return (
     <div className="input">
-      <div>
-        <label>weight</label>
-        <br />
-        <input
-          type="text"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>num_of_time</label>
-        <br />
-        <input
-          type="text"
-          valu={num_of_time}
-          onChange={(e) => setNumOfTime(e.target.value)}
-        />
+      <div className="wn">
+        <div>
+          <label>weight (kg)</label>
+          <br />
+          <input
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>num_of_time</label>
+          <br />
+          <input
+            type="number"
+            valu={num_of_time}
+            onChange={(e) => setNumOfTime(e.target.value)}
+          />
+        </div>
       </div>
       <div>
         <label>event</label>

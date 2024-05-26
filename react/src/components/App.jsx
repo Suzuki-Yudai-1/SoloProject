@@ -6,25 +6,16 @@ import Input from "./Input";
 
 export default function App() {
   const [record, setRecord] = useState([]);
-  const [weight, setWeight] = useState();
-  const [num_of_time, setNumOfTime] = useState();
+  const [weight, setWeight] = useState(0);
+  const [num_of_time, setNumOfTime] = useState(0);
   const [event, setEvent] = useState("");
   const [part, setPart] = useState("chest");
-
-
-  console.log( {
-    weight: weight,
-    num_of_time: num_of_time,
-    event: event,
-    part: part,
-    date: new Date().toLocaleDateString("sv-SE"),
-  })
 
   useEffect(() => {
     fetch("/api/record")
       .then((res) => res.json())
       .then((data) => setRecord(data));
-  }, []);
+  },);
 
   const postButton = () => {
     fetch("/api/record", {
@@ -45,7 +36,7 @@ export default function App() {
   return (
     <div className="root">
       <h1>Workout Record</h1>
-      <Split className="flex" sizes={[65, 35]}>
+      <Split className="flex" sizes={[70, 30]}>
         <Record record={record}></Record>
         <Input
           weight={weight}

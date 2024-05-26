@@ -1,13 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
 .root {
   color: black;
 }
 
 h1{
-  background-color: grey;
+  background-color: rgb(71, 71, 71);
   color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-family: "Play", sans-serif;
 }
 
 .flex{
   display: flex;
-  height: 650px;
+  height: 620px;
 }
