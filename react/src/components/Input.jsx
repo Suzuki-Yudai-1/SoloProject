@@ -12,13 +12,15 @@ export default function Input(props) {
     setEvent,
     setPart,
     postButton,
+    lastTime,
+    max
   } = props;
 
   return (
     <div className="input">
       <div className="wn">
         <div>
-          <label>weight (kg)</label>
+          <label>重量 (kg)</label>
           <br />
           <input
             className="inputText"
@@ -28,7 +30,7 @@ export default function Input(props) {
           />
         </div>
         <div>
-          <label>num_of_time</label>
+          <label>回数</label>
           <br />
           <input
             className="inputText"
@@ -40,20 +42,20 @@ export default function Input(props) {
       </div>
 
       <div>
-        <label>part</label>
+        <label>部位</label>
         <br />
         <select className="part" onChange={(e) => setPart(e.target.value)}>
-          <option>chest</option>
-          <option>back</option>
-          <option>arm</option>
-          <option>shoulder</option>
-          <option>leg</option>
-          <option>abs</option>
+          <option>胸</option>
+          <option>背中</option>
+          <option>腕</option>
+          <option>肩</option>
+          <option>脚</option>
+          <option>腹筋</option>
         </select>
       </div>
 
       <div>
-        <label>event</label>
+        <label>種目</label>
         <br />
         <input
           className="inputText"
@@ -64,7 +66,7 @@ export default function Input(props) {
       </div>
 
       <div>
-        <label>date</label>
+        <label>日付</label>
         <br />
         <input
           className="inputText"
@@ -74,11 +76,35 @@ export default function Input(props) {
         />
       </div>
 
-      <br />
+      <div className="lastTime">
+        <label>前回値</label>
+        <br />
+        <input
+          className="lastTimeRecord"
+          type="text"
+          value={`${lastTime.weight} kg ✖️ ${
+            lastTime.num_of_time
+          } 回    日付：${lastTime.date.slice(0, 10)}`}
+          readOnly
+        />
+      </div>
+
+      <div className="lastTime">
+        <label>Max 重量</label>
+        <br />
+        <input
+          className="lastTimeRecord"
+          type="text"
+          value={`${max.weight} kg ✖️ ${
+            max.num_of_time
+          } 回    日付：${max.date.slice(0, 10)}`}
+          readOnly
+        />
+      </div>
 
       <div>
         <button className="button" onClick={postButton}>
-          send
+          登録
         </button>
       </div>
     </div>
