@@ -23,11 +23,12 @@
   gap: 0px 10px;
 }
 
-input {
-  height: 30px;
-}
 
 label {
     background-color: rgb(210, 210, 210);
+    height: 30px;
+}
+
+.inputText{
     height: 30px;
 }

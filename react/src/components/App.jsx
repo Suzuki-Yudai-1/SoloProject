@@ -11,8 +11,8 @@ export default function App() {
   const [event, setEvent] = useState("");
   const [part, setPart] = useState("chest");
   const [sortPart, setSortPart] = useState("all");
-  const [sortRecord, setSortRecord] = useState([]);
-
+  const [id, setId] = useState(0);
+  
   useEffect(() => {
     if (sortPart === "all") {
       fetch("/api/record")
@@ -43,11 +43,30 @@ export default function App() {
     });
   };
 
+  
+  const deleteButton = () => {
+    fetch("/api/id", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id
+      }),
+    });
+  };
+
+
   return (
     <div className="root">
       <h1>Workout Record</h1>
       <Split className="flex" sizes={[70, 30]}>
-        <Record record={record} setSortPart={setSortPart}></Record>
+        <Record
+          record={record}
+          setSortPart={setSortPart}
+          setId={setId}
+          deleteButton={deleteButton}
+        ></Record>
         <Input
           weight={weight}
           setWeight={setWeight}

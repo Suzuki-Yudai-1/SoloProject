@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/record.css";
 
 export default function Record(props) {
-  const { record, setSortPart } = props;
+  const { record, setSortPart, setId, deleteButton} = props;
 
   return (
     <div className="record">
@@ -15,10 +15,12 @@ export default function Record(props) {
         <option>leg</option>
         <option>abs</option>
       </select>
-
+      <input className="deleteText"type="number" onChange={e=> setId(e.target.value)}/>
+      <button className="deleteButton"onClick={deleteButton}>delete</button>
       <table>
         <thead>
           <tr className="headline">
+            <th>No</th>
             <th>weight (kg)</th>
             <th>num_of_time</th>
             <th>event</th>
@@ -27,6 +29,7 @@ export default function Record(props) {
           </tr>
           {record.map((obj, index) => (
             <tr className="recordData" key={index}>
+              <th>{obj.id}</th>
               <th>{obj.weight}</th>
               <th>{obj.num_of_time}</th>
               <th>{obj.event}</th>

@@ -4,17 +4,28 @@ require("dotenv").config({
 });
 
 module.exports = {
-  client: "pg",
-  connection: {
-    database: process.env.DB_NAME ,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
+  development: {
+    client: "pg",
+    connection: {
+      database: process.env.DB_NAME,
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+    },
+    migrations: {
+      directory: "./db/migrations",
+    },
+    seeds: {
+      directory: "./db/seeds",
+    },
   },
-
-  migrations: {
-    tableName: "knex_migrations",
-  },
-  seeds: {
-    directory: "./db/seeds",
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: "./db/migrations",
+    },
+    seeds: {
+      directory: "./db/seeds",
+    },
   },
 };

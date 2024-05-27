@@ -4,19 +4,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "makeMigration": "knex migrate:make --knexfile knexfile.js",
-    "migrate": "knex migrate:latest --knexfile knexfile.js",
-    "rollback": "knex migrate:rollback --knexfile knexfile.js ",
-    "seed": "knex seed:run --knexfile knexfile.js"
+    "migrate-latest": "npx knex migrate:latest --knexfile knexfile.js",
+    "migrate-down": "npx knex migrate:down --knexfile knexfile.js",
+    "seed-npdata": "npx knex seed:run --knexfile knexfile.js",
+    "build": "npm install && npm run migrate-latest && npm run seed-npdata",
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chai": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "knex": "^3.1.0",
+    "mocha": "^10.4.0",
     "nodemon": "^3.1.0",
     "path": "^0.12.7",
     "pg": "^8.11.5",
