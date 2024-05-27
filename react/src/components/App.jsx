@@ -10,12 +10,22 @@ export default function App() {
   const [num_of_time, setNumOfTime] = useState(0);
   const [event, setEvent] = useState("");
   const [part, setPart] = useState("chest");
+  const [sortPart, setSortPart] = useState("all");
+  const [sortRecord, setSortRecord] = useState([]);
 
   useEffect(() => {
-    fetch("/api/record")
-      .then((res) => res.json())
-      .then((data) => setRecord(data));
-  },);
+    if (sortPart === "all") {
+      fetch("/api/record")
+        .then((res) => res.json())
+        .then((data) => setRecord(data));
+    } else {
+      fetch("/api/record")
+        .then((res) => res.json())
+        .then((data) =>
+          setRecord(data.filter((obj) => obj["part"] === sortPart))
+        );
+    }
+  }, [sortPart, record]);
 
   const postButton = () => {
     fetch("/api/record", {
@@ -23,13 +33,13 @@ export default function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(    {
+      body: JSON.stringify({
         weight: weight,
         num_of_time: num_of_time,
         event: event,
         part: part,
         date: new Date().toLocaleDateString("sv-SE"),
-      },),
+      }),
     });
   };
 
@@ -37,7 +47,7 @@ export default function App() {
     <div className="root">
       <h1>Workout Record</h1>
       <Split className="flex" sizes={[70, 30]}>
-        <Record record={record}></Record>
+        <Record record={record} setSortPart={setSortPart}></Record>
         <Input
           weight={weight}
           setWeight={setWeight}

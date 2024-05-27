@@ -2,10 +2,20 @@ import React from "react";
 import "../styles/record.css";
 
 export default function Record(props) {
-  const { record } = props;
+  const { record, setSortPart } = props;
 
   return (
     <div className="record">
+      <select className="sort" onChange={(e) => setSortPart(e.target.value)}>
+        <option>all</option>
+        <option>chest</option>
+        <option>back</option>
+        <option>arm</option>
+        <option>shoulder</option>
+        <option>leg</option>
+        <option>abs</option>
+      </select>
+
       <table>
         <thead>
           <tr className="headline">

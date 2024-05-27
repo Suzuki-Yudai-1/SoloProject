@@ -12,7 +12,7 @@ exports.seed = async function (knex) {
       num_of_time: 5,
       event: "squat",
       part: "leg",
-      date: "2024-05-14",
+      date: "2024-05-11",
     },
     {
       id: 2,
@@ -28,7 +28,31 @@ exports.seed = async function (knex) {
       num_of_time: 15,
       event: "arm curl",
       part: "arm",
-      date: "2024-04-14",
+      date: "2024-05-13",
+    },
+    {
+      id: 4,
+      weight: 20,
+      num_of_time: 15,
+      event: "shoulder press",
+      part: "shoulder",
+      date: "2024-05-13",
+    },
+    {
+      id: 5,
+      weight: 20,
+      num_of_time: 15,
+      event: "abs",
+      part: "abs",
+      date: "2024-05-13",
+    },
+    {
+      id: 6,
+      weight: 20,
+      num_of_time: 15,
+      event: "chinning",
+      part: "back",
+      date: "2024-05-14",
     },
   ]);
 };

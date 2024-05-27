@@ -16,10 +16,12 @@ const list = [
 app.use("/", express.json());
 
 app.get("/api/record", (req, res) => {
-  database("record")
-    .select()
-    .then((result) => res.json(result));
-});
+	database("record")
+	  .select()
+	  .orderBy("id", "desc")
+	  .then((result) => res.json(result));
+  });
+
 
 app.post("/api/record", (req, res) => {
   const body = req.body;

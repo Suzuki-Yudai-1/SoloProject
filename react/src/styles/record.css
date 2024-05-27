@@ -20,3 +20,10 @@ td {
 .recordData {
   background-color: white;
 }
+
+.sort {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+}

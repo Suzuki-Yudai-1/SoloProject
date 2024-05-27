@@ -7,10 +7,9 @@ export default function Input(props) {
     weight,
     setWeight,
     setNumOfTime,
-     num_of_time,
+    num_of_time,
     event,
     setEvent,
-    part,
     setPart,
     postButton,
   } = props;
@@ -49,7 +48,7 @@ export default function Input(props) {
       <div>
         <label>part</label>
         <br />
-        <select onChange={(e) => setPart(e.target.value)}>
+        <select className="part" onChange={(e) => setPart(e.target.value)}>
           <option>chest</option>
           <option>back</option>
           <option>arm</option>
