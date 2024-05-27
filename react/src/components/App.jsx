@@ -23,7 +23,6 @@ export default function App() {
     date: new Date().toLocaleDateString("sv-SE"),
   });
 
-console.log(id)
   useEffect(() => {
     if (sortPart === "全表示") {
       fetch("/api/record")
