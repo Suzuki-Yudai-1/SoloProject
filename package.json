@@ -8,7 +8,9 @@
     "migrate-down": "npx knex migrate:down --knexfile knexfile.js",
     "seed-npdata": "npx knex seed:run --knexfile knexfile.js",
     "build": "npm install && npm run migrate-latest && npm run seed-npdata",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+
   },
   "author": "",
   "license": "ISC",

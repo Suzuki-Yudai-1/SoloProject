@@ -11,7 +11,7 @@ const list = [
   "もう一度猫を抱きしめる",
 ];
 
-// app.use("/", express.static(__dirname + "/react/dist"));
+app.use("/", express.static(__dirname + "/react/dist"));
 
 app.use("/", express.json());
 
